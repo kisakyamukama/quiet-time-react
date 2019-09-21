@@ -1,6 +1,4 @@
 import React, { Component }from 'react';
-import { timingSafeEqual } from 'crypto';
-import Footer from '../../layout/Footer';
 import axios from 'axios';
 
 export default class AddDevotion extends Component {
@@ -17,8 +15,7 @@ export default class AddDevotion extends Component {
   });
 
   onSubmit = (e) => {
-    e.preventDefault();
-    // this.props.addDevotion(this.state.title, this.state.body, this.state.author, this.state.date);
+    e.preventDefault(); 
     axios.post('http://localhost:8080/api/devotion',{
       title: this.state.title,
       body:this.state.body,
@@ -65,17 +62,6 @@ export default class AddDevotion extends Component {
                   onChange= { this.onChange }
                   required
                 />
-                {/* <br />
-                <div>
-                  <div className="custom-control custom-radio custom-control-inline">
-                    <input type="radio"  name="publish" onChange={this.onChange} className="custom-control-input"/>
-                    <label className="custom-control-label">Do not publish yet</label>
-                  </div>
-                  <div className="custom-control custom-radio custom-control-inline">
-                    <input type="radio" name="publish" onChange={this.onChange}  className="custom-control-input" />
-                    <label className="custom-control-label">Publish</label>
-                  </div>
-                </div> */}
                 <br />
                 <input 
                 type="submit"

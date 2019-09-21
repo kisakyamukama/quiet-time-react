@@ -6,6 +6,7 @@ import axios from 'axios';
 import Header from './components/layout/Header';
 import Devotions from './components/pages/devotion/Devotions';
 import AddDevotion from './components/pages/devotion/AddDevotion';
+import EditDevotion from './components/pages/devotion/EditDevotion';
 import About from './components/pages/About';
 import Feedback from './components/pages/FeedBack';
 import Footer from './components/layout/Footer';
@@ -21,12 +22,23 @@ export default class App extends Component {
         axios.get('http://localhost:8080/api/devotion', {
         headers:{"Content-Type": "application/json" }
       }).then(response => {
-        console.log(response.data);
            this.setState({ devotions: response.data});
         })
         .catch(function(error) {
           console.log(error);
         })
+      }
+
+      componentDidUpdate(){
+        axios.get('http://localhost:8080/api/devotion', {
+          headers:{"Content-Type": "application/json" }
+        }).then(response => {
+             this.setState({ devotions: response.data});
+          })
+          .catch(function(error) {
+            console.log(error);
+          })
+
       }
 
       //delete devotion 
@@ -51,6 +63,7 @@ export default class App extends Component {
                   )}
                   />
                   <Route exact path="/add-devotion" component={AddDevotion} />
+                  <Route exact path="/edit-devotion/:id" component={EditDevotion} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/feedback" component={Feedback} />
 
