@@ -27,7 +27,8 @@ export default class AddDevotion extends Component {
       published: false
     })
     this.setState({ title: '', body: '', author:'', date: '', published: ''})
-
+    this.props.history.push('/');
+    
   }
   render() {
       return (
