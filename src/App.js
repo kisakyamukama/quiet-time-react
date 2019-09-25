@@ -10,7 +10,9 @@ import EditDevotion from './components/pages/devotion/EditDevotion';
 import About from './components/pages/About';
 import Feedback from './components/pages/FeedBack';
 import Footer from './components/layout/Footer';
-
+import AddBookLesson from './components/pages/lessons/lessonsFromBooksRead/AddBookLesson';
+import AddChurchLesson from  './components/pages/lessons/ChurchLesson';
+import ShowChurchLessons  from './components/pages/lessons/ShowChurchLessons';
 export default class App extends Component {
 
       state = {
@@ -22,6 +24,7 @@ export default class App extends Component {
         axios.get('http://localhost:8080/api/devotion', {
         headers:{"Content-Type": "application/json" }
       }).then(response => {
+        console.log(response);
            this.setState({ devotions: response.data});
         })
         .catch(function(error) {
@@ -66,7 +69,9 @@ export default class App extends Component {
                   <Route exact path="/edit-devotion/:id" component={EditDevotion} />
                   <Route exact path="/about" component={About} />
                   <Route exact path="/feedback" component={Feedback} />
-
+                  <Route exact path="/addBookLesson" component={AddBookLesson} />
+                  <Route exact  path="/addChurchLesson" component={AddChurchLesson} />
+                  <Route exact path="/churchLessons" component={ShowChurchLessons } />
 
                 </div>
                 <Footer />

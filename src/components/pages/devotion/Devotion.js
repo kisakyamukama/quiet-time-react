@@ -4,11 +4,6 @@ import { Link } from 'react-router-dom';
 
 export default class Devotion extends Component {
 
-  devotionStyling = () =>  {
-    return{
-      backgroundColor: this.props.published ?  'green':'yellow'
-    }
-  }
   render() {
     const { id,title, author, body} = this.props.devotion;
       return (
@@ -18,11 +13,11 @@ export default class Devotion extends Component {
                 <h6 className="card-subtitle mb-2 text-muted">{author}</h6>
                 <p className="card-text">{body}</p>
                 <Link to={"/edit-devotion/"+id} className="card-link">Edit</Link>
-                <a href="#" className="card-link">Share</a>
+                <Link to={'/'} className="card-link">Share</Link>
               </div>
             </div>
        
-      )
+      )                                                                                                                                                                                                                                                          
   }
 }
 

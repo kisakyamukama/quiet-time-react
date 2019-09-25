@@ -8,6 +8,8 @@ function Header() {
             <div>
                 <Link to="/">Home</Link> | 
                 <Link to="/add-devotion"> Add a devotion</Link> |
+                <Link to="/addBookLesson"> Book Lesson</Link> |
+                <Link to="/addChurchLesson"> Lesson from church</Link> |
                 <Link to="/about"> About </Link> |
                 <Link to="/feedback"> Feedback / Suggestions </Link>
 
