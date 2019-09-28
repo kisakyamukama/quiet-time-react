@@ -52,8 +52,9 @@ export default class Create extends Component {
 		// axios.post('/api/devotion', { id, title, body, author})
 		// .then((result) => {
 		// this.props.history.push("/")
-	});
-	}
+	};
+
+	
 
 	render() {
 		const { id, title, author, body} = this.state;
