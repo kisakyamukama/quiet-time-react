@@ -4,6 +4,7 @@ import axios from 'axios';
 
 // components
 import Header from './components/layout/Header';
+import Slider from './components/layout/Slider';
 import Devotions from './components/pages/devotion/Devotions';
 import AddDevotion from './components/pages/devotion/AddDevotion';
 import EditDevotion from './components/pages/devotion/EditDevotion';
@@ -13,13 +14,14 @@ import Footer from './components/layout/Footer';
 import AddBookLesson from './components/pages/lessons/lessonsFromBooksRead/AddBookLesson';
 import AddChurchLesson from  './components/pages/lessons/ChurchLesson';
 import ShowChurchLessons  from './components/pages/lessons/ShowChurchLessons';
+
 export default class App extends Component {
 
       state = {
         devotions: []
       }
-  
-      //  Retrieve devotions      
+
+      //  Retrieve devotions
       componentDidMount() {
         axios.get('http://localhost:8080/api/devotion', {
         headers:{"Content-Type": "application/json" }
@@ -44,21 +46,22 @@ export default class App extends Component {
 
       }
 
-      //delete devotion 
+      //delete devotion
       delDevotion = (id) => {
         axios.delete(`http://localhost:8080/api/devotion/${id}`)
         .then(res => this.setState({ devotions: [...this.state.devotions.filter(devotion => devotion.id !== id )]
         }));
       }
 
-   
+
       render() {
         return (
           <Router>
               <div className="App">
               <Header />
+              <Slider />
                 <div className="container min-vh-100" >
-                 
+
                   <Route exact path ="/" render= { props => (
                     <React.Fragment>
                        <Devotions  devotions = { this.state.devotions } delDevotion={this.delDevotion}/>
@@ -75,7 +78,7 @@ export default class App extends Component {
 
                 </div>
                 <Footer />
-                
+
             </div>
           </Router>
         )
