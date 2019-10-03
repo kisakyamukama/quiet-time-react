@@ -14,7 +14,7 @@ export default class AddDevotion extends Component {
 
   onSubmit = (e) => {
     e.preventDefault(); 
-    axios.post('http://localhost:8080/api/lesson/church',{
+    axios.post('https://qtapi.herokuapp.com/api/lesson/church',{
       theme: this.state.theme,
       lessons:this.state.lessons,
       author:this.state.author

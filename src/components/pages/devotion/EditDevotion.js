@@ -12,7 +12,7 @@ export default class EditDevotion extends Component {
   }
   
   componentDidMount(){
-    axios.get('http://localhost:8080/api/devotion/'+this.props.match.params.id, {
+    axios.get('https://qtapi.herokuapp.com/api/devotion/'+this.props.match.params.id, {
         headers:{"Content-Type": "application/json" }
       }).then(response => {
            this.setState({ 
@@ -35,7 +35,7 @@ export default class EditDevotion extends Component {
 
   onSubmit = (e) => {
     e.preventDefault(); 
-    axios.put('http://localhost:8080/api/devotion/'+this.props.match.params.id,{
+    axios.put('https://qtapi.herokuapp.com/api/devotion/'+this.props.match.params.id,{
       title: this.state.title,
       body:this.state.body,
       author:this.state.author,

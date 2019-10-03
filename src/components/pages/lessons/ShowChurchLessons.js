@@ -9,7 +9,7 @@ export default class ShowChurchLessons extends Component {
      }
      //  Retrieve devotions      
      componentDidMount() {
-        axios.get('http://localhost:8080/api/lesson/church', {
+        axios.get('https://qtapi.herokuapp.com/api/lesson/church', {
         headers:{"Content-Type": "application/json" }
       }).then(response => {
           console.log(response.data);
@@ -21,7 +21,7 @@ export default class ShowChurchLessons extends Component {
       }
 
       componentDidUpdate(){
-        axios.get('http://localhost:8080/api/lesson/church', {
+        axios.get('https://qtapi.herokuapp.com/api/lesson/church', {
           headers:{"Content-Type": "application/json" }
         }).then(response => {
              this.setState({ clessons: response.data});
