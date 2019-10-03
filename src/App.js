@@ -23,7 +23,7 @@ export default class App extends Component {
 
       //  Retrieve devotions
       componentDidMount() {
-        axios.get('http://localhost:8080/api/devotion', {
+        axios.get('https://qtapi.herokuapp.com/api/devotion', {
         headers:{"Content-Type": "application/json" }
       }).then(response => {
         console.log(response);
@@ -35,7 +35,7 @@ export default class App extends Component {
       }
 
       componentDidUpdate(){
-        axios.get('http://localhost:8080/api/devotion', {
+        axios.get('https://qtapi.herokuapp.com/api/devotion', {
           headers:{"Content-Type": "application/json" }
         }).then(response => {
              this.setState({ devotions: response.data});
@@ -48,7 +48,7 @@ export default class App extends Component {
 
       //delete devotion
       delDevotion = (id) => {
-        axios.delete(`http://localhost:8080/api/devotion/${id}`)
+        axios.delete(`https://qtapi.herokuapp.com/api/devotion/${id}`)
         .then(res => this.setState({ devotions: [...this.state.devotions.filter(devotion => devotion.id !== id )]
         }));
       }
